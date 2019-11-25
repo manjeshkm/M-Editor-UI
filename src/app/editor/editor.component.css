@@ -1,0 +1,21 @@
+.runButton{
+  background-color: greenyellow;
+  margin-right: 20px;
+  width: 100px;
+  justify-self: end;
+}
+.clearButton{
+  background-color: red;
+  width: 100px;
+  margin-right: 20px;
+  justify-self: end;
+}
+
+.formatButton{
+  background-color: blueviolet;
+  width: 100px;
+}
+
+.run {
+  margin-top: 10px;
+}
