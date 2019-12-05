@@ -4,6 +4,7 @@ import {HttpService} from './service/http/http.service';
 import {Observable, of} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {LanguageModel} from './models/language.model';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -77,9 +78,15 @@ export class AppComponent implements OnInit {
       }).subscribe((res: JdoodleResponseBody) => {
           this.output = res;
           console.log(`output:${this.output.output}`);
-        }, error => console.error(error), () => {
-        this.panelOpenState = true;
-        this.loading = false;
+        }, (error: HttpErrorResponse) => {
+          console.error(error);
+          this.output.statusCode = error.status;
+          this.output.output = error.error + ' server error';
+          this.panelOpenState = true;
+          this.loading = false;
+        }, () => {
+          this.panelOpenState = true;
+          this.loading = false;
         }
       );
     }
