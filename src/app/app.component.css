@@ -6,6 +6,12 @@
 .navbar{
   background-color: lightgray;
 }
+
+@media screen and (max-width: 599px) {
+  .navbar {
+    min-width: 130vw;
+  }
+}
 .container{
   margin: 40px auto;
   display: grid;
